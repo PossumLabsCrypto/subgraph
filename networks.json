@@ -1,0 +1,8 @@
+{
+  "arbitrum-sepolia": {
+    "PasselNFT": {
+      "address": "0xE212B9FC7c8734aF9f5A66F8986cb43423c3ff1c",
+      "startBlock": 97822712
+    }
+  }
+}
