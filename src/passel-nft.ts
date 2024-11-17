@@ -1,3 +1,4 @@
+import { BigInt } from "@graphprotocol/graph-ts";
 import {
   Approval as ApprovalEvent,
   ApprovalForAll as ApprovalForAllEvent,
@@ -89,6 +90,8 @@ export function handleTransfer(event: TransferEvent): void {
   if (tokenEntity == null) {
     tokenEntity = new NftData(event.params.tokenId.toString());
     tokenEntity.tokenID = event.params.tokenId;
+    tokenEntity.exp = BigInt.fromU64(0);
+    tokenEntity.explorationScore = BigInt.fromU64(0);
   }
 
   tokenEntity.owner = event.params.to;

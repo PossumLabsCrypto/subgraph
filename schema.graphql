@@ -88,6 +88,6 @@ type NftData @entity(immutable: false) {
   isListed: Boolean
   ownerInMarket: Bytes
   price: BigInt
-  exp: BigInt
-  explorationScore: BigInt
+  exp: BigInt!
+  explorationScore: BigInt!
 }

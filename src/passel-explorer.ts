@@ -17,10 +17,8 @@ export function handleEXP_Purchased(event: EXP_PurchasedEvent): void {
   if (tokenEntity == null) {
     tokenEntity = new NftData(event.params.nftID.toString());
     tokenEntity.tokenID = event.params.nftID;
-  }
-
-  if (tokenEntity.exp == null) {
     tokenEntity.exp = BigInt.fromU64(0);
+    tokenEntity.explorationScore = BigInt.fromU64(0);
   }
 
   tokenEntity.exp = tokenEntity.exp.plus(event.params.amount);

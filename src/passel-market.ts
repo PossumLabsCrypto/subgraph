@@ -28,8 +28,9 @@ export function handlePasselListingUpdated(
   if (tokenEntity == null) {
     tokenEntity = new NftData(event.params.tokenID.toString());
     tokenEntity.tokenID = event.params.tokenID;
+    tokenEntity.exp = BigInt.fromU64(0);
+    tokenEntity.explorationScore = BigInt.fromU64(0);
   }
-
 
   if (!event.params.isListed) {
     tokenEntity.isListed = false;
