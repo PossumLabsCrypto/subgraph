@@ -6,9 +6,9 @@ schema:
 dataSources:
   - kind: ethereum
     name: PasselNFT
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0xE212B9FC7c8734aF9f5A66F8986cb43423c3ff1c"
+      address: "0xa9c2833Bb3658Db2b0d7b3CC41D851b75E3508Cf"
       abi: PasselNFT
       startBlock: 97822712
     mapping:
@@ -38,9 +38,9 @@ dataSources:
       file: ./src/passel-nft.ts
   - kind: ethereum
     name: PasselMarket
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0x92Aa334d9B9856CFcbA508622ECBe83A106727Eb"
+      address: "0x9b2634014c551F33e0e3886B567ba54aA3a4bF37"
       abi: PasselMarket
       startBlock: 97829588
     mapping:
@@ -61,9 +61,9 @@ dataSources:
       file: ./src/passel-market.ts
   - kind: ethereum
     name: PasselExplorer
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0x3B23DF12A54A85165f1C8e39319A8F12Bb1ef63f"
+      address: "0xcF2C131EEfF4282A7E2d4D01d1BD6B18fD834014"
       abi: PasselExplorer
       startBlock: 97829596
     mapping:
@@ -81,9 +81,9 @@ dataSources:
       file: ./src/passel-explorer.ts
   - kind: ethereum
     name: PasselQuests
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0x36e56D2a73d8612b91ab21a17a0EABbb3eD397af"
+      address: "0x40200813B8eA23d3eC2c86Ec335b17198Fc51c53"
       abi: PasselQuests
       startBlock: 97829602
     mapping:
