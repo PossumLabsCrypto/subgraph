@@ -1,0 +1,101 @@
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BatchMetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  _fromTokenId: BigInt! # uint256
+  _toTokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type PasselListingUpdated @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tokenID: BigInt! # uint256
+  price: BigInt! # uint256
+  isListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PasselPurchased @entity(immutable: true) {
+  id: Bytes!
+  newOwner: Bytes! # address
+  tokenID: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type EXP_Purchased @entity(immutable: true) {
+  id: Bytes!
+  nftID: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type QuestCompleted @entity(immutable: true) {
+  id: Bytes!
+  nftID: BigInt! # uint256
+  questID: BigInt! # uint256
+  score: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type NftData @entity(immutable: false) {
+  id: String!
+  tokenID: BigInt!
+  owner: Bytes
+  isListed: Boolean
+  ownerInMarket: Bytes
+  price: BigInt
+  exp: BigInt!
+  explorationScore: BigInt!
+  quests: [QuestCompletion!]! @derivedFrom(field: "nft")
+}
+
+type QuestCompletion @entity {
+  id: String! # A unique ID (e.g., "tokenID-questID")
+  nft: NftData! # Relationship to the associated NftData
+  questID: BigInt! # The Quest ID
+  completed: Boolean! # Whether the quest is completed
+}
