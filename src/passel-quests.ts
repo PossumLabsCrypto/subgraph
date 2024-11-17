@@ -1,6 +1,6 @@
 import { BigInt } from "@graphprotocol/graph-ts";
 import { QuestCompleted as QuestCompletedEvent } from "../generated/PasselQuests/PasselQuests";
-import { NftData, QuestCompleted } from "../generated/schema";
+import { NftData, QuestCompleted, QuestCompletion } from "../generated/schema";
 
 export function handleQuestCompleted(event: QuestCompletedEvent): void {
   let entity = new QuestCompleted(
@@ -30,7 +30,18 @@ export function handleQuestCompleted(event: QuestCompletedEvent): void {
     tokenEntity.explorationScore = newScore;
   }
 
-  tokenEntity.save();
+  let questID = `${event.params.nftID.toString()}-${event.params.questID.toString()}`;
+  let questCompletion = QuestCompletion.load(questID);
 
+  if (!questCompletion) {
+    questCompletion = new QuestCompletion(questID);
+    questCompletion.nft = tokenEntity.id; // Link to the NftData entity
+    questCompletion.questID = event.params.questID;
+  }
+
+  questCompletion.completed = true;
+  questCompletion.save();
+
+  tokenEntity.save();
   entity.save();
 }

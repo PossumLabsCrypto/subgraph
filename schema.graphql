@@ -90,4 +90,12 @@ type NftData @entity(immutable: false) {
   price: BigInt
   exp: BigInt!
   explorationScore: BigInt!
+  quests: [QuestCompletion!]! @derivedFrom(field: "nft")
+}
+
+type QuestCompletion @entity {
+  id: String! # A unique ID (e.g., "tokenID-questID")
+  nft: NftData! # Relationship to the associated NftData
+  questID: BigInt! # The Quest ID
+  completed: Boolean! # Whether the quest is completed
 }
