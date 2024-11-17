@@ -44,3 +44,50 @@ type Transfer @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+type PasselListingUpdated @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tokenID: BigInt! # uint256
+  price: BigInt! # uint256
+  isListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PasselPurchased @entity(immutable: true) {
+  id: Bytes!
+  newOwner: Bytes! # address
+  tokenID: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type EXP_Purchased @entity(immutable: true) {
+  id: Bytes!
+  nftID: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type QuestCompleted @entity(immutable: true) {
+  id: Bytes!
+  nftID: BigInt! # uint256
+  questID: BigInt! # uint256
+  score: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type NftData @entity(immutable: false) {
+  id: String!
+  tokenID: BigInt!
+  owner: Bytes
+  isListed: Boolean
+  ownerInMarket: Bytes
+  price: BigInt
+  exp: BigInt
+  explorationScore: BigInt
+}

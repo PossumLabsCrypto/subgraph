@@ -1,0 +1,127 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_passelNFT", "type": "address" },
+      { "internalType": "address", "name": "_manager", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "MaximumScoreReached", "type": "error" },
+  { "inputs": [], "name": "NotManager", "type": "error" },
+  { "inputs": [], "name": "NullAddress", "type": "error" },
+  { "inputs": [], "name": "QuestsDisabled", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "nftID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EXP_Purchased",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenID", "type": "uint256" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "buyExperience",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenID", "type": "uint256" },
+      { "internalType": "uint256", "name": "_questID", "type": "uint256" }
+    ],
+    "name": "doQuest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "nftID", "type": "uint256" }
+    ],
+    "name": "getExperience",
+    "outputs": [
+      { "internalType": "uint256", "name": "exp", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "nftID", "type": "uint256" }
+    ],
+    "name": "getExplorationScore",
+    "outputs": [
+      { "internalType": "uint256", "name": "score", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "manager",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "passelQuests",
+    "outputs": [
+      {
+        "internalType": "contract IPasselQuests",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "psmReceiver",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "revokeManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_newQuests", "type": "address" }
+    ],
+    "name": "setPasselQuests",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_newReceiver", "type": "address" }
+    ],
+    "name": "setPsmReceiver",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

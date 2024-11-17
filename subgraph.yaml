@@ -36,3 +36,66 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/passel-nft.ts
+  - kind: ethereum
+    name: PasselMarket
+    network: arbitrum-sepolia
+    source:
+      address: "0x92Aa334d9B9856CFcbA508622ECBe83A106727Eb"
+      abi: PasselMarket
+      startBlock: 97829588
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PasselListingUpdated
+        - PasselPurchased
+      abis:
+        - name: PasselMarket
+          file: ./abis/PasselMarket.json
+      eventHandlers:
+        - event: PasselListingUpdated(indexed address,indexed uint256,uint256,bool)
+          handler: handlePasselListingUpdated
+        - event: PasselPurchased(indexed address,uint256,uint256)
+          handler: handlePasselPurchased
+      file: ./src/passel-market.ts
+  - kind: ethereum
+    name: PasselExplorer
+    network: arbitrum-sepolia
+    source:
+      address: "0x3B23DF12A54A85165f1C8e39319A8F12Bb1ef63f"
+      abi: PasselExplorer
+      startBlock: 97829596
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EXP_Purchased
+      abis:
+        - name: PasselExplorer
+          file: ./abis/PasselExplorer.json
+      eventHandlers:
+        - event: EXP_Purchased(indexed uint256,uint256)
+          handler: handleEXP_Purchased
+      file: ./src/passel-explorer.ts
+  - kind: ethereum
+    name: PasselQuests
+    network: arbitrum-sepolia
+    source:
+      address: "0x36e56D2a73d8612b91ab21a17a0EABbb3eD397af"
+      abi: PasselQuests
+      startBlock: 97829602
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - QuestCompleted
+      abis:
+        - name: PasselQuests
+          file: ./abis/PasselQuests.json
+      eventHandlers:
+        - event: QuestCompleted(indexed uint256,uint256,uint256)
+          handler: handleQuestCompleted
+      file: ./src/passel-quests.ts
